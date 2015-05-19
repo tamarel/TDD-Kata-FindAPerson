@@ -1,4 +1,4 @@
-__author__ = 'moran'
+__author__ = 'tamar'
 class Crowdmap(object):
     def __init__(self, init_list):
         self.list = init_list
@@ -13,7 +13,18 @@ class Crowdmap(object):
             if self.location_service.find(post): # if location_service.find(post):
                 return True
         return False
+		
+	def getlocation(self,post):
+		return post.find("Bangkok")
 
+	def is_location_for_name(self,name):
+		postList= self.get_all_posts_for(name)
+		for post in postList:
+			if location_service.find(post):
+				return True
+		return False	
+		
+		
 class LocationService:
     def find(self, text):
-        return (text.find("Banqkok") != -1)
+        return (text.find("Bangkok") != -1)
